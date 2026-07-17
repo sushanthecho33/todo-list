@@ -1,0 +1,15 @@
+Task: Buy groceries
+Description: Milk, eggs, bread
+Created: 2026-07-17 19:50:13
+Completed: False
+--------------------------------------------------
+Task: Complete project
+Description: Finish todo list app
+Created: 2026-07-17 19:50:13
+Completed: False
+--------------------------------------------------
+Task: Study Python
+Description: Learn decorators and OOP
+Created: 2026-07-17 19:50:13
+Completed: False
+--------------------------------------------------
