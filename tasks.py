@@ -1,13 +1,15 @@
-import json
 from datetime import datetime
+from typing import Dict, Optional
+
+Task = Dict[str, object]
 
 class TaskManager:
-    def __init__(self, filename='tasks.txt'):
+    def __init__(self, filename: str = 'tasks.txt') -> None:
         self.filename = filename
     
-    def add_task(self, task_name, description=''):
+    def add_task(self, task_name: str, description: str = '') -> Task:
         """Add a new task and store it in txt file"""
-        task = {
+        task: Task = {
             'name': task_name,
             'description': description,
             'created': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
@@ -16,7 +18,7 @@ class TaskManager:
         self.save_task(task)
         return task
     
-    def save_task(self, task):
+    def save_task(self, task: Task) -> None:
         """Save task to txt file"""
         try:
             with open(self.filename, 'a', encoding='utf-8') as f:
@@ -29,7 +31,7 @@ class TaskManager:
         except Exception as e:
             print(f"Error saving task: {e}")
     
-    def load_tasks(self):
+    def load_tasks(self) -> Optional[str]:
         """Load all tasks from txt file"""
         try:
             with open(self.filename, 'r', encoding='utf-8') as f:
@@ -38,7 +40,7 @@ class TaskManager:
             print("No tasks file found")
             return None
     
-    def clear_tasks(self):
+    def clear_tasks(self) -> None:
         """Clear all tasks from txt file"""
         try:
             with open(self.filename, 'w', encoding='utf-8') as f:
